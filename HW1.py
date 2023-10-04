@@ -1,38 +1,50 @@
 # HW1.py
-# Author:
+# Author: Terrisha Edwards
 
 # Question 1:
 # Print Hello World like we did in class
+print("Hello World")
 
 # Question 2:
 # Print the following:
 # Your name
+print("Terrisha Edwards")
 
 # Your age
+print("22")
 
 # Your favorite color
+print("blue")
 
 # Your favorite animal
+print("Seahorse")
 
 # Question 3:
 # Create a variable called "myName" and set it equal to your name
+myName = ("Terrisha")
 
 # Create a variable called "myAge" and set it equal to your age
+myAge = ("22")
 
 # Create a variable called "myColor" and set it equal to your favorite color
+myColor = ("Purple")
 
 # Create a variable called "myAnimal" and set it equal to your favorite animal
+myAnimal = ("Seahorse")
 
 # Print the following:
 # Hello, my name is <myName>
+print("Hello + my name is + name")
 # I am <myAge> years old
+print("I am "+ myAge +" years old")
 # My favorite color is <myColor>
+print("Myfavorite color is "+ myColor +")
 # My favorite animal is <myAnimal>
-
+print("My favorite animal is "+ myAnimal +")
 
 # Question 4:
 # Calculate the following and print the result:
-# 2 + 2
+# 2 + 2 
 
 # 3 * 4
 
@@ -42,12 +54,16 @@
 
 # Question 5:
 # Create a variable called "num1" and set it equal to 2
+num1 = 2
 
 # Create a variable called "num2" and set it equal to 3
+num2 = 3
 
 # Create a variable called "num3" and set it equal to 4
+num3 = 4
 
 # Create a variable called "num4" and set it equal to 5
+num4 = 5
 
 # Calculate the following and print the result:
 # num1 + num2
