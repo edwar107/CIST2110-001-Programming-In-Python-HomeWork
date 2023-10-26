@@ -1,5 +1,5 @@
 # HW4.py
-# Author:
+# Author: Terrisha Edwards
 
 ### README
 # This file contains buggy functions that you need to fix.
@@ -28,9 +28,10 @@ def add(a:float, b:float) -> float:
     Returns:
         float: the sum of a and b
     """
-    return a - b
+    return a + b
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line: return a - b. 
+# Should be corrected to return a + b.  
 
 def subtract(a:float, b:float) -> float:
     """Subtract two numbers
@@ -42,9 +43,10 @@ def subtract(a:float, b:float) -> float:
     Returns:
         float: the difference of a and b
     """
-    return a + b
+    return a - b
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line: return a + b. 
+# Should be corrected and return a - b. 
 
 def divide(a, b):
     """Divide two numbers
@@ -56,9 +58,10 @@ def divide(a, b):
     Returns:
         float: the quotient of a and b
     """
-    return a * b
+    return a / b
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line: return a * b. 
+# Should be changed to: return a / b. 
 
 
 def multiply(a:float, b:float) -> float:
@@ -71,10 +74,11 @@ def multiply(a:float, b:float) -> float:
     Returns:
         float: the product of a and b
     """
-    return a / b
+    return a * b
 
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line: return a / b. 
+# Should be changed to return a * b. 
 
 
 def greet(name:str)->str:
@@ -86,9 +90,10 @@ def greet(name:str)->str:
     Returns:
         _type_: the greeting message
     """
-    return "Heloo, "+name+"!"
+    return "Hello, "+ name +"!"
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line: return "Heloo, "+name+"!". 
+# There is a typo in the string and it should be changed to: return "Hello, "+ name +"!". 
 
 
 def square(num:int) -> int:
@@ -100,9 +105,10 @@ def square(num:int) -> int:
     Returns:
         int: the square of the number
     """
-    return num + num
+    return num * num
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is in on the line "return num + num". 
+# Should be changed to: return num * num
 
 
 def is_even(num:int) -> bool:
@@ -114,9 +120,10 @@ def is_even(num:int) -> bool:
     Returns:
         bool: True if the number is even, False otherwise
     """
-    return num % 2 == 1
+    return num % 2 == 0
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on line 7: return num % 2 == 1. 
+# Should be changed to return num % 2 == 0
 
 
 def grade_calculator(score:float) -> str:
@@ -132,7 +139,7 @@ def grade_calculator(score:float) -> str:
         return "A"
     elif 80 <= score < 90:
         return "B"
-    elif 70 <= score < 79:
+    elif 70 <= score < 80:
         return "C"
     elif 60 <= score < 70:
         return "D"
@@ -141,7 +148,8 @@ def grade_calculator(score:float) -> str:
     else:
         return "Invalid Score"
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on the line: elif 70 <= score < 79. 
+# Should be corrected to elif 70 <= score < 80. 
 
 def speed_check(speed:float) -> str:
     """Check if the speed is within the speed limit
@@ -157,12 +165,13 @@ def speed_check(speed:float) -> str:
         return "Too slow"
     elif 20 <= speed <= 60:
         return "Within limit"
-    elif speed > 70: 
+    elif speed > 60: 
         return "Over speed limit"
     else:
         return "Unknown"
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is on the line: elif speed > 70: return "Over speed limit". 
+# Should be corrected to elif speed > 60: return: "Over the speed limit".
 
 def is_leap_year(year:int) -> bool:
     """Check if a year is a leap year
@@ -182,7 +191,14 @@ def is_leap_year(year:int) -> bool:
     else:
         return False
 # Where is the bug in the buggy function?
-# A:
+# A: The bug is the calculations are that within the leap year.
+#  If a year is divisible by 4, it's a leap year but if it's divisible by 100, it's not a leap year unless it's also divisible by 400, in which it is a leap year.
+
+
+
+
+
+
 
 def main():
     print("You are running me directly!")
