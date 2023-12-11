@@ -1,5 +1,5 @@
 # Project 2
-# Name:
+# Name: Terrisha Edwards 
 # Project 2 will test on topics learned in class so far. You will be creating a contact list program with an external csv file that will store the contacts. The program will have the following features:
 # 1. Add contact
 # 2. View contacts
@@ -9,11 +9,34 @@
 # 0. Quit
 
 # Import the csv module, datetime module
-import csv
-import datetime as dt
+import csv 
+import datetime 
 
+def import_csv(contact.csv):
+    try:
+        with open(contact.csv, 'r') as file:
+            reader = csv.reader(file)
+            next(reader)
+        data = [row for row in reader]
+        return data 
+for row in reader: 
+    data.append(row)
+
+    return data 
 # Make sure to show docs strings for each function and include comments in your code. Make sure to include a main function and call the main function at the end of the program.
+def main():
+    "Main function to run the program"
+    file_path = 'contatcs.csv'
+    contact_data = import_csv(file_path)
+    
+    while True:
+        display_menu
+        choice = input("Enter your choice (1-4): ")
 
+        if choice == '1':
+            
+        
+        elif choice == 
 print("Welcome to the Contact List Program")
 
 # There is also a contact.csv file that will be used to store the contacts. The csv file will have the following format:
