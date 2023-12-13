@@ -30,7 +30,7 @@ def main():
     contact_data = import_csv(file_path)
     
     while True:
-        display_menu
+        display_menu 
         choice = input("Enter your choice (1-4): ")
 
         if choice == '1':

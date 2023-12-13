@@ -1,21 +1,22 @@
-#  ________  ________  ________        ___  _______   ________ _________        ________
+ #  ________  ________  ________        ___  _______   ________ _________        ________
 # |\   __  \|\   __  \|\   __  \      |\  \|\  ___ \ |\   ____\\___   ___\     |\_____  \
 # \ \  \|\  \ \  \|\  \ \  \|\  \     \ \  \ \   __/|\ \  \___\|___ \  \_|     \|____|\ /_
 #  \ \   ____\ \   _  _\ \  \\\  \  __ \ \  \ \  \_|/_\ \  \       \ \  \            \|\  \
 #   \ \  \___|\ \  \\  \\ \  \\\  \|\  \\_\  \ \  \_|\ \ \  \____   \ \  \          __\_\  \
 #    \ \__\    \ \__\\ _\\ \_______\ \________\ \_______\ \_______\  \ \__\        |\_______\
 #     \|__|     \|__|\|__|\|_______|\|________|\|_______|\|_______|   \|__|        \|_______|
-# Author:
+# Author: Terrisha Edwards
 # CIST2110-001-Project-3 Library Management System (LMS)
 # Project 3 will implement a library management system (LMS) that will allow users to manage books, users, and a library to manage collection of books and users.
 # The LMS will be menu driven and will allow users to add, delete, and update books and users.
 # Users will also be able to borrow and return books.
 # The LMS will also allow users to search for books and users.
 
-# ENABLE WORD WRAP TO MAKE THINGS EASIER TO READ:
+# ENABLE WORD WRAP TO MAKE THINGS EASIER TO READ: 
 # VIEW (at the top) -> WORD WRAP
 
-# Import statements:
+# Import statements: 
+import csv
 
 # Project outline and requirements:
 
@@ -28,11 +29,32 @@
 #    d. borrowed (boolean) - this should not be passed in as a parameter, it should be set to False by default
 # USE SELF IN THE __INIT__ METHOD TO CREATE THESE ATTRIBUTES
 
+class Book:
+    def _init_(self, ISBN: int, title: str, author:str):
+        self.ISBN = ISBN
+        self.title = title
+        self.author = author
+        self.borrowed = False
+
 # Methods:
 #    a. __str__ (returns a string representation of the book using the following format: ISBN: <ISBN>, Title: <Title>, Author: <Author>, Borrowed: <Borrowed>)
 #    b. checkout - sets borrowed to True and returns a message that the book has been checked out
 #    c. checkin - sets borrowed to False and returns a message that the book has been checked in
 #    d. isBorrowed - returns True if the book is borrowed and False if the book is not borrowed
+
+def _str_(self):
+    return f"ISBN: {self.ISBN}, Title: {self.title}, Author: {self.author}, Borrowed: {self.borrowed}"
+
+def checkout(self):
+    self.borrowed = True
+    return f"The book '{self.title}' has been checked out."
+
+def checkin(self):
+    self.borrowed = False
+    return f"The book '{self.title}' has been checked in."
+
+def isBorrowed(self):
+    return self.borrowed 
 
 
 # 2. Create a User class that has the following attributes (create a __init__ method)):
@@ -40,16 +62,48 @@
 #    c. ID (int)
 #    d. borrowedBooks (list of books) - this should not be passed in as a parameter, it should be set to an empty list by default
 # USE SELF IN THE __INIT__ METHOD TO CREATE THESE ATTRIBUTES
+class User:
+    def _init_(self, name: str, ID: int):
+        self.name = name
+        self.ID = ID
+        self.borrowedBooks = []
+
+    def _str_(self):
+        borrowed_books_str = ',' .join([str(book) for book in self.borrowedBooks])
+        return f"Name: {self.name}, ID: {self.ID}, Borrowed Books: {borrowed_books_str}"
+    
 
 # Methods:
 #    a. __str__ (returns a string representation of the user using the following format: Name: <Name>, ID: <ID>, Borrowed Books: <Borrowed Books>)
 #    b. borrow_book - adds the book to the borrowedBooks list, updates the isBorrowed attribute of the book to True, and returns a message that the book has been checked out (should take a book as a parameter)
 #    c. return_book - removes the book from the borrowedBooks list, updates the isBorrowed attribute of the book to False, and returns a message that the book has been checked in (should take a book as a parameter)
 
+def borrow_book(self, book: Book):
+    self.borrowedBooks.append(book)
+    book.checkout()
+    return f"The book '{book.title}' has been checked out by {self.name}."
+
+def return_book(self, book: Book): 
+    self.borrowedBooks.remove(book)
+    book.checkin()
+    return f"The book '{book.title}' has been checkout in by {self.name}."
+
 # 3. Create a Library class that has the following attributes (create a __init__ method)):
 #    a. books (list of books)
 #    b. users (list of users)
 # USE SELF IN THE __INIT__ METHOD TO CREATE THESE ATTRIBUTES
+
+import csv 
+
+class Library:
+    def _init_(self):
+        self.books = []
+        self.users = []
+
+def _str_(self):
+    books_str = ',' .join([str(book) for book in self.books])
+    users_str = ',' .join([str(user) for user in self.users])
+    return f"Books: {books_str}, Users: {users_str}"
 
 # Methods:
 #    a. __str__ (returns a string representation of the library using the following format: Books: <Books>, Users: <Users>)
@@ -65,6 +119,42 @@
 #       borrowed_books_titles = [book.title for book in user.borrowed_books]
 #       Use that and pythons .join method to create a string of the borrowed books titles
 
+def add_book(self, book: Book):
+    self.books.append(book)
+
+def add_user(self, user: User):
+    self.users.append(user)
+
+def find_book(self, ISBN: int):
+    for book in self.books:
+        if book.ISBN == ISBN:
+            return book
+
+def find_user(self, ID: int):
+    for user in self.users:
+        if user.ID == ID:
+            return user
+        
+def export_books_to_csv(self, filename: str):
+    with open(filename, 'w', newline= '') as csvfile:
+        fieldnames = ['ISBN', 'Title', 'Auhtor', 'Borrowed']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for book in self.books:
+            writer.writerow({'ISBN': book.ISBN, 'Title': book.title, 'Author': book.author, 'Borrowed': book.borrowed})
+
+def export_books_to_csv(self, filename: str): 
+    with open(filename, 'w', newline= '') as csvfile: 
+        fieldnames = ['Name', 'ID', 'Borrowed Books']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    for user in self.users: 
+        borrowed_books_titles = ',' .join([book.title for book in user.borrowedBooks])
+        writer.writerow({'Name': user.name, 'ID': user.ID, 'Borrowed Books': borrowed_books_titles})
+
+
 # 4. Create a menu that will allow users to:
 #    a. Add books
 #    b. Add users
@@ -79,13 +169,16 @@
 #    m. Export users to csv
 #    z. Exit
 
+
+
+
 # RQUIREMENTS:
 # 1. You should be doing error checking on all user input (make sure the user enters a valid ISBN, ID, etc.) and handle any errors appropriately (i.e. if the user enters an invalid ISBN, ask them to enter a valid ISBN)
 # 2. You should be using try except blocks to handle any errors
 # 3. You should be using the classes and methods outlined above with the exact names and parameters
 # 4. You should be using the menu to call the appropriate methods
-# 5. There is a Project3Tests.py file that will help you test your code. You should be able to run that file and pass all the tests.
-#    Remember to run pytest use the following command in the terminal: pytest Project3Tests.py
+# 5. There is a Project3Tests.py file that will help  you test your code. You should be able to run that file and pass all the tests.
+#   Remember to run pytest use the following command in the terminal: pytest ProjectTest.py
 # 6. The Project3Tests.py file is missing 2 tests. test_user_return and test_library_find_user. You will need to implement those tests and ensure they pass.
 # 7. In your main method you should create a library object first to use for the rest of the program. You should not be creating a new library object every time you call a method. (Similar to the Store object in Lab 11)
 # 8. In your main method you should be using a while loop to keep the program running until the user chooses to exit.
@@ -101,11 +194,103 @@
 # 6. Did you include docstrings for all classes and methods?
 # 7. Did you include type hints for all methods?
 # 8. Did your pytests for the test_user_return and test_library_find_user work?
-
+def print_main():
+    print("Menu:")
+    print("a. Add books")
+    print("b. Add users")
+    print("c. Delete books")
+    print("d. Delete users")
+    print("g. Borrow books")
+    print("h. Return books")
+    print("i. Search books")
+    print("j. Check if book is available")
+    print("k. Search users")
+    print("l. Export books to csv")
+    print("m. Export users to csv")
+    print("z. Exit")
+    return input("Enter your choice: ")
 
 def main():
-    pass  # Remove this line when you implement this method
-
+    library = Library()
+    while True:
+        choice = print_main()
+        try: 
+            if choice == 'a':
+                ISBN = int(input("Enter ISBN: "))
+                title = input("Enter title: ")
+                author = input("Enter author: ")
+                book = Book(ISBN, title, author)
+                library.add_book(book)
+            elif choice == 'b':
+                name = input("Enter name: ")
+                ID = int(input("Enter ID: "))
+                user = User(name, ID)
+                library.add_user(user)
+            elif choice == 'c':
+                ISBN = int(input("Enter ISBN of the book to delete: "))
+                book = library.find_book(ISBN)
+                if book:
+                    library.books.remove(book)
+                else:
+                    print("Book not found.")
+            elif choice == 'd':
+                ID = int(input("Enter ID of the user to delete: "))
+                user = library.find_user(ID)
+                if user: 
+                    library.users.remove(user)
+                else: 
+                    print("User not found.")
+            elif choice == 'g':
+                ID = int(input("Enter your ID: "))
+                ISBN = int(input("ENter ISBN of the book to borrow: "))
+                user = library.find_user(ID)
+                book = library.find_book(ISBN)
+                if user and book and not book.isBorrowed():
+                    user.borrow_book(book)
+                else:
+                    print("Cannot borrow the book.")
+            elif choice == 'h':
+                ID: int(input("Enter your ID: "))
+                ISBN = int(input("Enter ISBN of the books to return: "))
+                user = library.find_user(ID)
+                book = library.find_book(ISBN)
+                if user and book and book in user.borrowedBooks:
+                    user.return_book(book)
+                else:
+                    print("Cannot return the book.")
+            elif choice == 'i':
+                ISBN = int(input("Enter ISBN of the book to search: "))
+                book = library.find_book(ISBN)
+                if book:
+                    print(book)
+                else: 
+                    print("Book not found.")
+            elif choice == 'j':
+                ISBN = int(input("Enter ISBN of the book to check: "))
+                book = library.find_book(ISBN)
+                if book and not book.isBorrowed():
+                    print("The book is available.")
+                else:
+                    print("The book is not available.")
+            elif choice == 'k':
+                ID= int(input("Enter ID of the user to search: "))
+                user = library.find_user(ID)
+                if user:
+                    print(user)
+                else:
+                    print("User not found.")
+            elif choice == 'l': 
+                filename = input("Enter filename to export users to csv: ")
+                library.export_users_to_csv(filename)
+            elif choice =='m':
+                filename = input("Enter filename to ecport users to csv: ")
+                library.export_users_to_csv(filename)
+            elif choice == 'z':
+                break
+            else:
+                print("Invalid choice: Please enter a valid option.")
+                except Exception as e:
+            print(f"An error occured: {'e'}")
 
 if __name__ == "__main__":
     main()

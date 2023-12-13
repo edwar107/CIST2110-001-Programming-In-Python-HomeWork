@@ -7,6 +7,119 @@
 
 
 ### INSERT CODE FROM LAB11.PY HERE 1-11###
+class Product: -> Product 
+def _init_(self, name, price, product_id):
+        self.name = name
+        self.price = price
+        self.product_id = product_id
+        
+    # 2. Create a method called __str__ that returns a string with the following format:
+    # Product: <name>, Price: <price>, ID: <product_id>
+    # Hint: use f-strings to format the string.
+def _str_(self):
+        return f"Product: {self.name}, Price: {self.price}, ID: {self.product_id}"
+
+# Great now that we have a Product lets create a Customer class.
+# 3. Create a class called Customer. The class should have the following attributes in the __init__ method:
+# name -> this should be a string
+# customer_id (this should be a unique number)
+# cart -> this should be a list that contains Product objects.
+class Customer:
+    def _init_(self, name, customer_id):
+        self.name = name
+        self.customer_id = customer_id
+        self.cart = [] 
+
+    def _str_(self):
+        return f"Customer: {self.name}, ID: {self.customer_id}"
+    
+# also create a __str__ method that returns a string with the following format:
+# Customer: <name>, ID: <customer_id>
+# Hint: use f-strings to format the string.
+def _str_(self):
+    return f"Customer: {self.name}, ID: {self.customer_id}"
+
+# 4. Create a method called add_to_cart that takes in a Product object and adds it to the cart list. print out the product that was added and the customer's name.
+def add_to_cart(self, product: Product):
+    self.cart.append(product)
+    print(f"{product} was added to {self.name}'s cart'")
+
+
+
+# 5. Create a method called remove_from_cart that takes in a Product object and removes it from the cart list.
+def remove_from_cart(self, product: Product):
+    self.cart.remove(product)
+    print(f"{product} was removed from {self.name}'s cart'")
+
+
+# 6. Create a method called checkout calculates the total price of all the products in the cart and prints out the total. After printing out the total, empty the cart.
+# Hint: you will need to loop through the cart and add up the prices.
+def checkout(self):
+    total = 0 
+    for porduct in self.cart:
+        total += product.price
+    print(f"{self.name}'s total is: {total}'")
+    self.cart = []
+
+# 7. Create a method called display_products that prints out all the products in the cart list. (use the __str__ method from the Product class)
+def display_products(self):
+    print{f"self.name"}'s cart:'s' ")
+    for product in self.cart:
+        print(product)
+
+# 8. **Extra** Create a method called display_products_pretty that prints out all the products in the cart list. (use the tabulate library)
+# Make a nice table table using the tabulate library.
+def display_products_pretty(self):
+    import tabulate #pip install tabulate
+
+    print(f"{self.name}'s cart:")
+    print(tabulate.tabulate(
+        #Tabulate takes in list of dictionaries
+        [
+            {
+                "Name": product.name,
+                "Price": product.price,
+                "ID": product.product_id, 
+            }
+            for product in self.cart
+        ],
+        headers="keys",
+        tablefmt="fancy_grid"
+        (
+
+        )
+
+# 7. Create a class called Store. The class should have the following attributes in the __init__ method:
+# products -> this should be a list that contains Product objects.
+# customers -> this should be a list that contains Customer objects.
+class Store:
+    def_intit_(self):
+        self.product = []
+        self.customers = []
+        
+    # 8. Create a method called add_product that takes in a Product object and adds it to the products list.
+    def add_product(self, product: Product):
+    self.products,append(product)
+    print(f"{product} was added to the store.")
+    
+    # 9. Create a method called add_customer that takes in a Customer object and adds it to the customers list.
+    def add_customer(self, customer: Customer):
+    self.cusotmers.append(customer)
+    print(f"{customer} was added to the store.")
+    
+    
+    # 10. Create a method called display_products that prints out all the products in the products list.
+    def display_products(self):
+    print("Products:")
+    for product in self.products:
+    print(product)
+    
+    
+    # 11. Create a method called display_customers that prints out all the customers in the customers list.
+    def display_customers(self):
+    print("Customers:")
+    for customer in self.customers:
+        print(customer)
 
 ### END CODE FROM LAB11.PY ###
 
@@ -15,11 +128,15 @@
 # Hint: You can use the add_to_cart method from the Customer class.
 # Hint2: This method does not need to be in a class. It should be a regular function that takes in a Customer object and a Product object.
 
+def add_product_to_customer_cart(customer, product):
+customer.add_to_cart(product )
+print(f"{product.name} was added to {customer.name}'s cart.")
 
 # 2. Create a method called remove_product_from_customer_cart that takes in a Customer object and a Product object. The method should remove the product from the customer's cart. The method should also print out the product that was removed and the customer's name.
 # Hint: You can use the remove_from_cart method from the Customer class.
 # Hint2: This method does not need to be in a class. It should be a regular function that takes in a Customer object and a Product object.
-
+def remove_product_from_customer_cart(customer,product):
+print(f"{product.name} was removed from {customer.name}'s cart.")
 
 # 3. Create a menu function that will display the following menu:
 # 1. Add Product
@@ -31,7 +148,19 @@
 # 7. Display Customer's Cart
 # 8. Checkout
 # 9. Exit
-
+def menu("""
+         1. Add Product
+         2. Add Customer
+         3. Add Product to Customer's Cart
+         4. Remove Product from Customer's Cart
+         5. Display Products
+         6. Display Customers
+         7. Display Customer's Cart
+         8. Checkout 
+         9. Exit
+         """)
+    choice = int(input("Please enter your choice: "))
+    return choice
 
 # The menu function should return the user's choice as an integer.
 # Hint: Print out the menu and then use the input() function to get the user's choice.
@@ -61,8 +190,13 @@
 
 
 def main():
-    pass  # remove this line when you start working on the main function
+    store = Store()
+    while True
+    choice = menu()
 
+if choice == 1:
+product_name = input("Enter the name of the product: ")
+product_price = float(input("Enter the price of the product "))
 
 if __name__ == "__main__":
     """

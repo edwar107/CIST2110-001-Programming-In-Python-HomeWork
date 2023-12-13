@@ -10,46 +10,81 @@
 # The game should keep track of the user's score and provide feedback based on the answers given.
 
 # Write a function that displays a welcome message to the user and explains the rules of the game
-print("Hello welcome to Lucky 68!")
-print("Rules of the Game:")
-print("For this quest you have to achieve a total score of 68.")
-print("You will start with a score of 0, and you will have to accumlate points to achieve the Lucky 68.")
-print("You can earn points by completing various tasks or challenges.")
-print("Each task will have a differemt point value.")
-print("The game will continue until you reach a score of 68")
-print("Good Luck and Have Fun!")
+def welcome_message(): 
+    print("Hello welcome to Lucky 68!")
+    print("Rules of the Game:")
+    print("For this quest you have to achieve a total score of 68.")
+    print("You will start with a score of 0, and you will have to accumlate points to achieve the Lucky 68.")
+    print("You can earn points by completing various tasks or challenges.")
+    print("Each task will have a differemt point value.")
+    print("The game will continue until you reach a score of 68")
+    print("Good Luck and Have Fun!")
+
 # Implement at least 5 , each with 4 questions answer options (a, b, c, d). Each question should be worth 1 point.
+def ask_question(question, options, correct_answer):
+    print(question)
+    for option in options:
+        print(option)
+        user_answer = input("Your answer (a, b, c, d):")
+        return user_answer == correct_answer
+    
+def display_result(is_correct):
+    if is_correct:
+        print("Correct! You earned points.")
+        return 1
+    else:
+        print("Incorrect. The correct answer was provided.")
+        return 0 
+def display_final_score(scoer):
+    print("Congrats! Your final score is: 68")
+    
+#Question
 
-#Question 1: 
-#What is the capital of New Jersey?
-#a: Trenton
-#b: Seaside Heights
-#c: Princeton
-#d: Newark
+questions = [
 
-#Question 2: Which nickname is often used to refer to New Jersey?
-#a: The Empire State
-#b: The Sunshine State
-#c: The Garden State
-#d: The Lone Star State
+    {
+        'questions': "What is the capital of New Jersey?"
+        'options':['a: Trenton', 'b:Seaside Heights', 'c:Priceton', 'd:Newark']
+        'correct_answer': 'a'
+    },
+    {
+        'question': "Which nickname is often used to refer to New Jersey?"
+        'options':['a:The Empire State','b:The Sunshine','c:The Garden State','d:The Lone Star State']
+        'correct_answer':'c'
+    }
+    {
+        'questions': "How many lakes does Stockton University Have?"
+        'options':['a:4', 'b:6', 'c:8', 'd:2']
+        'correct_answer':'d'
+    },
+    {
+        'questions': "Who is the governor of New Jersey?"
+        'options':['a:Jon Corzine', 'b:Phil Murphy', 'c:Richard Codey', 'd:Chris Christie']
+        'correct_answer':'b'
+    {
+        'questions': "How man counties are in NEw Jersey?"
+        'options':['a:35', 'b:52', 'c:21', 'd:44']
+        'correct_answer':'c'
+    }   
 
-#Question 3: How many lakes does Stockton University have?
-#a: 4
-#b: 6
-#c: 8
-#d: 2
+    }
 
-#Question 4: Who is the governor of New Jersey?
-#a Jon Corzine
-#b Phil Murphy
-#c Richard Codey
-#d Chris Christie
+]
 
-#Question 5: How many counties are in New Jersey?
-#a 35
-#b 52
-#c 21
-#d 44
+def main():
+        welcome_message()
+        total_score = 0
+        target_score = 68
+        
+for q in questions: 
+    is_correct = ask_question(q['question']), q['options'], q['correct_answer'])
+    
+    
+if total_score >= target_score >= target_score:
+    break
+
+display_final_score(toal_score)
+
 
 # For each question, display the question and the answer options to the user.
 # Use input() to get the user's answer.
@@ -178,4 +213,3 @@ def user_input(error):
             return user_input
         else:
             print("Invalid input.")
-
