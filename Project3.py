@@ -22,23 +22,23 @@
 # OUTLINE - The LMS will consist of the following classes and methods:
 
 # 1. Create a Book class that has the following attributes (create a __init__ method)):
-#    a. ISBN (int)
-#    b. Title (string)
-#    c. Author (string)
+#    a. isbn (int)
+#    b. title (string)
+#    c. author (string)
 #    d. borrowed (boolean) - this should not be passed in as a parameter, it should be set to False by default
 # USE SELF IN THE __INIT__ METHOD TO CREATE THESE ATTRIBUTES
 
 # Methods:
 #    a. __str__ (returns a string representation of the book using the following format: ISBN: <ISBN>, Title: <Title>, Author: <Author>, Borrowed: <Borrowed>)
-#    b. checkout - sets borrowed to True and returns a message that the book has been checked out
-#    c. checkin - sets borrowed to False and returns a message that the book has been checked in
-#    d. isBorrowed - returns True if the book is borrowed and False if the book is not borrowed
+#    b. check_out - sets borrowed to True and returns a message that the book has been checked out
+#    c. check_in - sets borrowed to False and returns a message that the book has been checked in
+#    d. borrowed - returns True if the book is borrowed and False if the book is not borrowed
 
 
 # 2. Create a User class that has the following attributes (create a __init__ method)):
-#    a. Name (string)
-#    c. ID (int)
-#    d. borrowedBooks (list of books) - this should not be passed in as a parameter, it should be set to an empty list by default
+#    a. name (string)
+#    c. member_id (int)
+#    d. borrowed_books (list of books) - this should not be passed in as a parameter, it should be set to an empty list by default
 # USE SELF IN THE __INIT__ METHOD TO CREATE THESE ATTRIBUTES
 
 # Methods:
