@@ -10,14 +10,17 @@
 # The game should keep track of the user's score and provide feedback based on the answers given.
 
 # Write a function that displays a welcome message to the user and explains the rules of the game
-print("Hello welcome to Lucky 68!")
-print("Rules of the Game:")
-print("For this quest you have to achieve a total score of 68.")
-print("You will start with a score of 0, and you will have to accumlate points to achieve the Lucky 68.")
-print("You can earn points by completing various tasks or challenges.")
-print("Each task will have a differemt point value.")
-print("The game will continue until you reach a score of 68")
-print("Good Luck and Have Fun!")
+def welcome_message()
+    #Print a greeting to the user
+    print("Hello welcome to Lucky 68!")
+    #Print the rules of the game
+    print("Rules of the Game:")
+    print("For this quest you have to achieve a total score of 68.")
+    print("You will start with a score of 0, and you will have to accumlate points to achieve the Lucky 68.")
+    print("You can earn points by completing various tasks or challenges.")
+    print("Each task will have a differemt point value.")
+    print("The game will continue until you reach a score of 68")
+    print("Good Luck and Have Fun!")
 # Implement at least 5 , each with 4 questions answer options (a, b, c, d). Each question should be worth 1 point.
 
 #Question 1: 

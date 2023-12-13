@@ -9,10 +9,37 @@
 # 0. Quit
 
 # Import the csv module, datetime module
-import csv
-import datetime as dt
+import csv 
+import datetime 
 
+def import_csv(contact.csv):
+    try:
+        with open(contact.csv, 'r') as file:
+            reader = csv.reader(file)
+            next(reader)
+        data = [row for row in reader]
+        return data 
+for row in reader: 
+    data.append(row)
+
+    return data 
 # Make sure to show docs strings for each function and include comments in your code. Make sure to include a main function and call the main function at the end of the program.
+<<<<<<< HEAD
+=======
+def main():
+    "Main function to run the program"
+    file_path = 'contatcs.csv'
+    contact_data = import_csv(file_path)
+    
+    while True:
+        display_menu
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            
+        
+        elif choice == 
+>>>>>>> 3e6c00a86337023e351a3121023764c3b45d9de2
 print("Welcome to the Contact List Program")
 
 def import_csv(contacts.csv):
